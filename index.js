@@ -14,16 +14,18 @@ const winCondition =  [
 ];
 
 let options = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer;
+let currentPlayer = 'cross'
 let cross = "cross";
 let circle = "circle";
 let running = false;
+let crossArr = [];
+let circleArr = [];
 
 startGame();
-
+reset.addEventListener('click', restartGame);
 
 function startGame(){
-    currentPlayer = "X";
+   
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     reset.addEventListener("click", restartGame);
     statusText.textContent = `${currentPlayer} turn`;
@@ -48,24 +50,84 @@ function cellClicked() {
 }
 
 function updateCell(cell, index){
-    console.log("funciona");
+    console.log(index);
     options[index] = currentPlayer;
-    cell.classList.add("cross");
-    currentPlayer = "circle;"
+    
+    cell.classList.add(currentPlayer);
+    
     
 
 }
 
-function changePlayer() {
+/* function changePlayer() {
+
+} */
+
+function checkWinner() {
+    console.log('me llamaron');
+    
+// Check if all the turns were made, if not change player and return to game
+if(currentPlayer == 'cross'){
+    currentPlayer = 'circle';
+}
+else if (currentPlayer == 'circle') {
+    currentPlayer = 'cross';
+
+
+}
+    
+
+   for (let i = 0; i < options.length; i++){
+    
+    if (options[i] == 'cross' ){
+        crossArr.push(i);
+    }
+    else if (options[i] == 'circle'){
+        circleArr.push(i);
+    }
+   }
+   console.log(crossArr);
+   console.log(circleArr);
+
+   for (let i = 0; i < winCondition.length; i++){
+    if (winCondition[i] == crossArr){
+       winner('cross');
+       
+    }
+    else if (winCondition[i] == circleArr){
+        winner('circle');
+     }
+
+     else {
+        
+        return console.log('empate');
+        
+     }
+   }
+   console.log(crossArr);
 
 }
 
-function checkWinner() {
-   for (const i = 0; i < options.length; i++){
-    if ()
-   }
+function winner (player){
+    return console.log(`${player} is the winner`);
+
 }
 
 function restartGame() {
+    currentPlayer = 'cross';
+    options = ["", "", "", "", "", "", "", "", ""];
+    circleArr = [];
+    crossArr = [];
+    cells.forEach(function (cell){
+        if (cell.classList.contains('cross')){
+            cell.classList.remove('cross');
+        }
+        else {
+            cell.classList.remove('circle');
+        }
+    }
+        );
+
+
 
 }
