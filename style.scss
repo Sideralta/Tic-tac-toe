@@ -38,25 +38,33 @@ body {
     .cell {
         width: $cell-size;
         height: $cell-size;
-        border: 2px solid;
+        border: $symbol-border;
         position: relative;
         font-size: 50px;
         cursor: pointer;
     
     }
-    & :nth-child(-n+3) {
+    & :nth-child(1),
+    :nth-child(2),
+    :nth-child(3) {
         border-top: none;
     }
     
-    & :nth-child(3n+1) {
+    & :nth-child(1),
+    :nth-child(4),
+    :nth-child(7) {
         border-left: none;
     }
     
-    & :nth-child(3n+3) {
+    & :nth-child(3),
+    :nth-child(6),
+    :nth-child(9) {
         border-right: none;
     }
     
-    & :nth-child(-n+3) {
+    & :nth-child(7),
+    :nth-child(8),
+    :nth-child(9) {
         border-bottom: none;
     }
 
@@ -78,6 +86,32 @@ body {
     transform: translate(-50%, -50%);    
 
 }
+
+.cross::after {
+    box-sizing: border-box;
+    content: '';
+    width: 0;
+    height: $symbol-size;
+    border-left: $symbol-border;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);  
+}
+
+.cross::before {
+    box-sizing: border-box;
+    content: '';
+    width: 0;
+    height: $symbol-size;
+    border-left: $symbol-border;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);  
+}
+
+
 
 
 

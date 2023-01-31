@@ -27,21 +27,29 @@ body {
 #cells .cell {
   width: 100%;
   height: 100%;
-  border: 2px solid;
+  border: 15px solid black;
   position: relative;
   font-size: 50px;
   cursor: pointer;
 }
-#cells :nth-child(-n+3) {
+#cells :nth-child(1),
+#cells :nth-child(2),
+#cells :nth-child(3) {
   border-top: none;
 }
-#cells :nth-child(3n+1) {
+#cells :nth-child(1),
+#cells :nth-child(4),
+#cells :nth-child(7) {
   border-left: none;
 }
-#cells :nth-child(3n+3) {
+#cells :nth-child(3),
+#cells :nth-child(6),
+#cells :nth-child(9) {
   border-right: none;
 }
-#cells :nth-child(-n+3) {
+#cells :nth-child(7),
+#cells :nth-child(8),
+#cells :nth-child(9) {
   border-bottom: none;
 }
 
@@ -56,6 +64,30 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.cross::after {
+  box-sizing: border-box;
+  content: "";
+  width: 0;
+  height: 60%;
+  border-left: 15px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cross::before {
+  box-sizing: border-box;
+  content: "";
+  width: 0;
+  height: 60%;
+  border-left: 15px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /*# sourceMappingURL=style.css.map */
