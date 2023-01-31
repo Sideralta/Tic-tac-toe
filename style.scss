@@ -1,0 +1,84 @@
+$cell-size: 100%;
+$color-border: black;
+$color-symbol: $color-border;
+$color-symbol-hover: gray;
+$symbol-border: 15px solid $color-symbol;
+$symbol-size: 60%;
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e9edc9;
+}
+
+
+
+#gameContainer{
+    font-family: "Permanent Marker", cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+#cells {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 600px;
+    height: 600px;
+    margin: 30px;
+    background-color: #d4a373;
+    
+    border-radius: 50px;
+    .cell {
+        width: $cell-size;
+        height: $cell-size;
+        border: 2px solid;
+        position: relative;
+        font-size: 50px;
+        cursor: pointer;
+    
+    }
+    & :nth-child(-n+3) {
+        border-top: none;
+    }
+    
+    & :nth-child(3n+1) {
+        border-left: none;
+    }
+    
+    & :nth-child(3n+3) {
+        border-right: none;
+    }
+    
+    & :nth-child(-n+3) {
+        border-bottom: none;
+    }
+
+    
+
+}
+
+.circle::after{
+ 
+    content: '';
+    width: $symbol-size;
+    height: $symbol-size;
+    color: $color-symbol;
+    border-radius: 50%;
+    border: $symbol-border;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+
+}
+
+
+
+ 
