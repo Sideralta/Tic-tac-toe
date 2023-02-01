@@ -9,9 +9,17 @@
     <title>Document</title>
 </head>
 <body>
-
+    <div id="language-box">
+        <h2>Choose a language / Elige el idioma</h2>
+        <div id="buttons">
+            <button class="language">Español</button>
+        <button class="language">English</button>
+        </div>
+        
+    </div>
+<div id="app" class="hide">
     <div id="gameContainer">
-        <h1>Tic Tac Toe</h1>
+        <h1 id="title">Tic Tac Toe</h1>
         
         <div id="cells">
             <div index="0" class="cell" id="prueba"></div>
@@ -31,7 +39,10 @@
 
     </div>
     
+</div>
 
-    <script src="index.js"></script>
+    
+    <script type="module" src="main.js"></script>
+    
 </body>
 </html>

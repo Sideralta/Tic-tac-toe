@@ -1,11 +1,38 @@
 * {
   margin: 0;
   box-sizing: border-box;
+
 }
 
 body {
   background-color: #e9edc9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+
+#language-box {
+  
+  background-color: greenyellow;
+  width: 500px;
+  height: 300px;
+  
+}
+
+
 
 #gameContainer {
   font-family: "Permanent Marker", cursive;

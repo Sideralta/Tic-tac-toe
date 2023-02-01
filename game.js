@@ -1,31 +1,11 @@
-const cells = document.querySelectorAll(".cell");
-const statusText = document.querySelector("#status-text");
-const reset = document.querySelector("#reset");
+import {btn, app, selector, title, cells, statusText, reset, player, texts, symbols, winCondition, options, running } from "./main.js";
+import {selectLanguage, languageSwitch} from "./language.js";
 
-const winCondition = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 4, 8],
-  [6, 4, 2],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-];
-
-let options = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer = "cross";
-let cross = "cross";
-let circle = "circle";
-let running = false;
-
-startGame();
-reset.addEventListener("click", restartGame);
-
-function startGame() {
+function startGame(language) {
+  
   cells.forEach((cell) => cell.addEventListener("click", cellClicked));
   reset.addEventListener("click", restartGame);
-  statusText.textContent = `${currentPlayer} turn`;
+  statusText.textContent = texts.language.status;
   running = true;
 }
 
@@ -43,7 +23,7 @@ function cellClicked() {
 }
 
 function updateCell(cell, index) {
-  options[index] = currentPlayer;
+  options[index] = player;
 
   cell.classList.add(currentPlayer);
 }
@@ -52,10 +32,10 @@ function changePlayer() {
   // Check if all the turns were made, if not change player and return to game
   if (currentPlayer == "cross") {
     currentPlayer = "circle";
-    statusText.textContent = `${currentPlayer} turn`;
+    statusText.textContent = `${player} turn`;
   } else if (currentPlayer == "circle") {
     currentPlayer = "cross";
-    statusText.textContent = `${currentPlayer} turn`;
+    statusText.textContent = `${player} turn`;
   }
 }
 
@@ -134,6 +114,9 @@ function restartGame() {
     }
   });
 }
+
+
+export {startGame, cellClicked, updateCell, changePlayer, checkWinner,winner, restartGame};
 
 
 
