@@ -37,7 +37,7 @@ function cellClicked() {
   }
 
   updateCell(this, cellIndex);
-  
+
   changePlayer();
   checkWinner();
 }
@@ -49,8 +49,8 @@ function updateCell(cell, index) {
 }
 
 function changePlayer() {
-// Check if all the turns were made, if not change player and return to game
-if (currentPlayer == "cross") {
+  // Check if all the turns were made, if not change player and return to game
+  if (currentPlayer == "cross") {
     currentPlayer = "circle";
     statusText.textContent = `${currentPlayer} turn`;
   } else if (currentPlayer == "circle") {
@@ -63,8 +63,6 @@ function checkWinner() {
   let crossArr = [];
   let circleArr = [];
 
-  
-
   for (let i = 0; i < options.length; i++) {
     if (options[i] == "cross") {
       crossArr.push(i);
@@ -73,27 +71,20 @@ function checkWinner() {
     }
   }
 
-
   for (let i = 0; i < winCondition.length; i++) {
     let crossCount = 0;
     let circleCount = 0;
 
-
     for (let i = 0; i < winCondition.length; i++) {
-        let cellsWinner = [];
+      let cellsWinner = [];
       for (let j = 0; j < winCondition[i].length; j++) {
-        
         for (let x = 0; x < crossArr.length; x++) {
-            
           if (winCondition[i][j] == crossArr[x]) {
-            
             crossCount++;
             cellsWinner.push(winCondition[i][j]);
 
             if (crossCount == 3) {
-               
-             
-              return winner("cross", cellsWinner );
+              return winner("cross", cellsWinner);
             }
           }
         }
@@ -102,20 +93,15 @@ function checkWinner() {
     }
 
     for (let i = 0; i < winCondition.length; i++) {
-        let cellsWinner = [];
+      let cellsWinner = [];
       for (let j = 0; j < winCondition[i].length; j++) {
-        
         for (let x = 0; x < circleArr.length; x++) {
-            
           if (winCondition[i][j] == circleArr[x]) {
-            
             circleCount++;
             cellsWinner.push(winCondition[i][j]);
 
             if (circleCount == 3) {
-               
-             
-              return winner("circle", cellsWinner );
+              return winner("circle", cellsWinner);
             }
           }
         }
@@ -128,15 +114,12 @@ function checkWinner() {
 }
 
 function winner(player, cellsWinner) {
- alert(`${player} is the winner with ${cellsWinner}`);
+  alert(`${player} is the winner with ${cellsWinner}`);
   restartGame();
-  showWinnners(player, cellsWinner);
-  
-    
-  }
-
-
-
+  cells[cellsWinner[0]].classList.add(`${player}`);
+  cells[cellsWinner[1]].classList.add(`${player}`);
+  cells[cellsWinner[2]].classList.add(`${player}`);
+}
 
 function restartGame() {
   currentPlayer = "cross";
@@ -152,28 +135,5 @@ function restartGame() {
   });
 }
 
-function showWinnners (player, cellsWinner) {
-    console.log('se llamooo');
-    for (let i = 0; i > cellsWinner.length; i++){
-       
-        
-        for (let j = 0; j > cells.length; j++){
-            
-            if(parseInt(cells[j].getAttribute('index')) == cellsWinner[i]){
-                cells[j].classList.add(`${player}`);
-                
-            }
-        }
-        
-}
-console.log(cellsWinner.length);
 
-console.log('pasoo el looop');
-}
 
-/* cells.forEach(function (cell) {
-    console.log(cell.value);
-    if (parseInt(cell.getAttribute("index")) == cellsWinner[i]) {
-      cell.classList.add(`${player}`);
-    } 
-  }); */
