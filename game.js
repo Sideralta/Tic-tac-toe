@@ -5,7 +5,7 @@ function startGame(language) {
   
   cells.forEach((cell) => cell.addEventListener("click", cellClicked));
   reset.addEventListener("click", restartGame);
-  statusText.textContent = texts.language.status;
+  statusText.textContent = texts[language].status;
   running = true;
 }
 
