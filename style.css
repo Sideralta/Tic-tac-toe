@@ -23,7 +23,7 @@ body {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 5rem;
   text-shadow: -1px -1px 0px #bde0fe, 3px 3px 0px #bde0fe, 6px 6px 0px #bde0fe;
 }
 
@@ -35,10 +35,10 @@ h1 {
   color: #FFFFFF;
   cursor: pointer;
   font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 800;
-  line-height: 16px;
-  min-height: 40px;
+  line-height: 1rem;
+  min-height: 2.5rem;
   outline: 0;
   padding: 12px 14px;
   text-align: center;
@@ -64,11 +64,11 @@ h1 {
 #modal {
   background: #f72585;
   border: 10px solid white;
-  font-size: 50px;
+  font-size: 3.125rem;
   font-family: "Permanent Marker", cursive;
   color: #fff;
   position: fixed;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   top: 20%;
   left: 25%;
   height: 50vh;
@@ -83,24 +83,25 @@ h1 {
 #status-text {
   background-color: #f72585;
   border-radius: 15px;
-  font-size: 50px;
+  font-size: 3.125rem;
   text-align: center;
-  margin-bottom: 15px;
-  padding: 20px;
-  width: 570px;
+  margin-bottom: 0.938rem;
+  padding: 1.25rem;
+  width: 35.625rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #language-box {
   background-color: #bde0fe;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  border-radius: 15px;
-  width: 500px;
-  height: 300px;
+  border-radius: 0.938rem;
+  width: 31.25rem;
+  height: 18.75rem;
   color: #3a0ca3;
-  font-size: 35px;
+  font-size: 2.188rem;
   font-family: "Permanent Marker", cursive;
   text-align: center;
+  margin-top: 3.125rem;
 }
 
 #gameContainer {
@@ -114,41 +115,41 @@ h1 {
 #cells {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  width: 600px;
-  height: 600px;
-  margin: 30px;
+  width: 37.5rem;
+  height: 37.5rem;
+  margin: 1.875rem;
   background-color: #f72585;
-  border: 20px solid #3a0ca3;
+  border: 1.25rem solid #3a0ca3;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 50px;
 }
 #cells .cell {
   width: 100%;
   height: 100%;
-  border: 15px solid #7209b7;
+  border: 0.938rem solid #7209b7;
   position: relative;
-  font-size: 50px;
+  font-size: 3.125rem;
   cursor: pointer;
 }
 #cells :nth-child(1),
 #cells :nth-child(2),
 #cells :nth-child(3) {
-  border-top: 15px solid #f72585;
+  border-top: 0.938rem solid #f72585;
 }
 #cells :nth-child(1),
 #cells :nth-child(4),
 #cells :nth-child(7) {
-  border-left: 15px solid #f72585;
+  border-left: 0.938rem solid #f72585;
 }
 #cells :nth-child(3),
 #cells :nth-child(6),
 #cells :nth-child(9) {
-  border-right: 15px solid #f72585;
+  border-right: 0.938rem solid #f72585;
 }
 #cells :nth-child(7),
 #cells :nth-child(8),
 #cells :nth-child(9) {
-  border-bottom: 15px solid #f72585;
+  border-bottom: 0.938rem solid #f72585;
 }
 
 .circle::after {
@@ -157,7 +158,7 @@ h1 {
   height: 50%;
   color: #7209b7;
   border-radius: 50%;
-  border: 15px solid #7209b7;
+  border: 0.938rem solid #7209b7;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -169,7 +170,7 @@ h1 {
   content: "";
   width: 0;
   height: 50%;
-  border-left: 15px solid #7209b7;
+  border-left: 0.938rem solid #7209b7;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -181,11 +182,57 @@ h1 {
   content: "";
   width: 0;
   height: 50%;
-  border-left: 15px solid #7209b7;
+  border-left: 0.938rem solid #7209b7;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ------------------------------------mobile--------------------------------------------- */
+@media (max-width: 845px) {
+  #language-box {
+    width: 22.25rem;
+    height: 19.75rem;
+    font-size: 1.6rem;
+  }
+  #cells {
+    width: 19.5rem;
+    height: 19.5rem;
+  }
+  #cells .cell {
+    border: 0.588rem solid #7209b7;
+  }
+  #cells :nth-child(1),
+  #cells :nth-child(2),
+  #cells :nth-child(3) {
+    border-top: 0.938rem solid #f72585;
+  }
+  #cells :nth-child(1),
+  #cells :nth-child(4),
+  #cells :nth-child(7) {
+    border-left: 0.938rem solid #f72585;
+  }
+  #cells :nth-child(3),
+  #cells :nth-child(6),
+  #cells :nth-child(9) {
+    border-right: 0.938rem solid #f72585;
+  }
+  #cells :nth-child(7),
+  #cells :nth-child(8),
+  #cells :nth-child(9) {
+    border-bottom: 0.938rem solid #f72585;
+  }
+  #status-text {
+    font-size: 1.65rem;
+    width: 18.625rem;
+  }
+  #modal {
+    left: 10%;
+    height: 344px;
+    width: 325px;
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
