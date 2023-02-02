@@ -34,7 +34,7 @@ h1 {
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   color: #FFFFFF;
   cursor: pointer;
-  font-family: "Patrick Hand", cursive;
+  font-family: "Patrick Hand" "Roboto", cursive;
   font-size: 1rem;
   font-weight: 800;
   line-height: 1rem;
@@ -65,7 +65,7 @@ h1 {
   background: #f72585;
   border: 10px solid white;
   font-size: 3.125rem;
-  font-family: "Patrick Hand", cursive;
+  font-family: "Patrick Hand" "Roboto", cursive;
   color: #fff;
   position: fixed;
   border-radius: 1.25rem;
@@ -99,13 +99,13 @@ h1 {
   height: 18.75rem;
   color: #3a0ca3;
   font-size: 2.188rem;
-  font-family: "Patrick Hand", cursive;
+  font-family: "Patrick Hand" "Roboto", cursive;
   text-align: center;
   margin-top: 3.125rem;
 }
 
 #gameContainer {
-  font-family: "Patrick Hand", cursive;
+  font-family: "Patrick Hand" "Roboto", cursive;
   display: flex;
   flex-direction: column;
   justify-content: center;
