@@ -216,6 +216,7 @@ function checkWinner() {
             cellsWinner.push(winCondition[i][j]);
 
             if (circleCount == 3) {
+              currentPlayer = symbols[language].circle;
               return winner();
             }
           }
