@@ -3,6 +3,9 @@ let currentPlayer = '';
 let btn = document.querySelectorAll(".language");
 const app = document.querySelector("#app");
 const selector = document.querySelector("#language-box");
+const modal = document.querySelector('#modal');
+const winnerText = document.querySelector("#winner-text");
+const newGameBtn = document.querySelector("#newGame");
 
 const title = document.querySelector("#title");
 const cells = document.querySelectorAll(".cell");
@@ -15,12 +18,16 @@ let texts = {
     español: {
         title: "Ta Te Ti",
         reset: "Resetear",
-        status: `Es el turno de`
+        status: "Es el turno de",
+        win: "ES EL GANADOR!!",
+        draw: "ES UN EMPATE!!"
     } ,
     english: {
         title: "Tic Tac Toe",
         reset: "Reset",
-        status: `'s turn`
+        status: `'s turn`,
+        win: "IS THE WINNER!!",
+        draw: "IS A DRAW!!"
     }
 }
 
@@ -48,14 +55,16 @@ let running = false;
 
 reset.addEventListener("click", restartGame);
 
-app.classList.add("hide");
-selector.classList.add("show");
 
 selectLanguage();
 
 //------------------------------------------------Language----------------------------------------------------------
 
 function selectLanguage(){
+  modal.classList.add("hide");
+app.classList.add("hide");
+selector.classList.add("show");
+
   btn.forEach((btn) => {
       btn.addEventListener("click", function (e) {
         e.preventDefault;
@@ -190,7 +199,7 @@ function checkWinner() {
             cellsWinner.push(winCondition[i][j]);
 
             if (crossCount == 3) {
-              return winner("cross", cellsWinner);
+              return winner();
             }
           }
         }
@@ -207,28 +216,48 @@ function checkWinner() {
             cellsWinner.push(winCondition[i][j]);
 
             if (circleCount == 3) {
-              return winner("circle", cellsWinner);
+              return winner();
             }
           }
         }
       }
       circleCount = 0;
     }
-
-    return "Draw";
+  
   }
+  let count = 0;
+  options.forEach(element => {
+    if (element != ''){
+      count ++;
+    }
+    
+  });
+  console.log(count);
+  if (count == 9){
+    draw();
+  }
+
+  
 }
 
-function winner(currentPlayer, cellsWinner) {
-  alert(`${currentPlayer} is the winner with ${cellsWinner}`);
-  restartGame();
-  cells[cellsWinner[0]].classList.add(`${currentPlayer}`);
-  cells[cellsWinner[1]].classList.add(`${currentPlayer}`);
-  cells[cellsWinner[2]].classList.add(`${currentPlayer}`);
+function winner() {
+  winnerText.textContent = `${currentPlayer.toUpperCase()} ${texts[language].win}`;
+  modal.classList.remove("hide");
+  app.classList.add("hide");
+  newGame();
+}
+
+function draw(){
+  console.log("paso");
+  winnerText.textContent = `${texts[language].draw}`;
+  modal.classList.remove("hide");
+  app.classList.add("hide");
+  newGame();
+
 }
 
 function restartGame() {
-  currentPlayer = "cross";
+  currentPlayer = "";
   options = ["", "", "", "", "", "", "", "", ""];
   circleArr = [];
   crossArr = [];
@@ -240,5 +269,14 @@ function restartGame() {
     }
   });
   startGame();
-  
+
+}
+
+function newGame () {
+  newGameBtn.addEventListener("click", function(e){
+    e.preventDefault;
+    selector.classList.remove('hide');
+    restartGame();
+    selectLanguage();
+  })
 }
