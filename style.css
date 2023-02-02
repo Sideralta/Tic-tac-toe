@@ -44,8 +44,8 @@ h1 {
   text-align: center;
   text-rendering: geometricprecision;
   text-transform: none;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
 }
